@@ -1,7 +1,7 @@
 import styled, { css, keyframes, injectGlobal } from 'react-emotion'
 
 injectGlobal`
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,500,700');
   html,body {
     height: 100%;
     width: 100%;
@@ -77,18 +77,25 @@ const bounce = keyframes`
 
 const Title = styled('h1')`
   color: white;
-  font-size: 3rem;
+  font-size: 7rem;
   font-weight: 700;
   animation: ${bounce} 1s ease;
   transform-origin: center bottom;
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
 `
 
 const SubTitle = styled('p')`
   color: #c7c7c7;
   width: 95%;
   padding-left: 0.45rem;
-  font-size: 1rem;
-  font-weight: 200;
+  font-size: 3rem;
+  font-weight: 500;
+  @media (min-width: 768px) {
+    font-size: 1.45rem;
+    font-weight: 200;
+  }
 `
 
 const HalfCard = styled('div')`
