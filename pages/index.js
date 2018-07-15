@@ -1,4 +1,4 @@
-import styled, { css, injectGlobal } from 'react-emotion'
+import styled, { css, keyframes, injectGlobal } from 'react-emotion'
 
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,700');
@@ -23,25 +23,17 @@ const Navbar = styled('nav')`
   display: flex;
   flex-direction: row;
   align-items: center;
-  @media (min-width: 425px) and (max-width: 1024px) {
-    height: 90px;
-  }
-  @media (min-width: 425px) and (max-width: 1024px) {
-    height: 70px;
-  }
-  @media (min-width: 1024px) {
-    height: 60px;
+  height: 130px;
+  @media (min-width: 1025px) {
+    height: 100px;
   }
 `
 const Content = styled('main')`
   order: 2;
-  /* This defines the ability for a flex item to grow if necessary. */
   flex-grow: 1;
-  /* This defines the ability for a flex item to shrink if necessary. */
   flex-shrink: 1;
-  /*The auto keyword means "look at my width or height property */
   flex-basis: auto;
-  padding: 2rem 1.5rem 2rem 3rem;
+  padding: 0rem 1.5rem 2rem 3rem;
 `
 
 const Footer = styled('footer')`
@@ -54,14 +46,41 @@ const Footer = styled('footer')`
   color: white;
 `
 
+const FooterText = styled('p')`
+  color: #c7c7c7;
+  padding: 1.75rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 200;
+`
+
 const TitleContainer = styled('div')`
-  margin: 2rem 1rem;
+  margin: 2rem 0.75rem;
+`
+const bounce = keyframes`
+  from, 20%, 53%, 80%, to {
+    transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    transform: translate3d(0, -15px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -7px, 0);
+  }
+
+  90% {
+    transform: translate3d(0,-2px,0);
+  }
 `
 
 const Title = styled('h1')`
   color: white;
   font-size: 3rem;
   font-weight: 700;
+  animation: ${bounce} 1s ease;
+  transform-origin: center bottom;
 `
 
 const SubTitle = styled('p')`
@@ -73,42 +92,57 @@ const SubTitle = styled('p')`
 `
 
 const HalfCard = styled('div')`
-  display: inline-block;
-  width: 46.5%;
-  height: 400px;
   background-color: #fff;
-  margin: 0rem 1%;
+  margin: 1.5rem 1%;
+  height: 600px;
+  width: 95%;
+  background: url('https://picsum.photos/g/1024/600');
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  @media (min-width: 1024px) {
+    display: inline-block;
+    margin: 0 1%;
+    height: 400px;
+    width: 46.5%;
+  }
 `
 
 const Card = styled('div')`
-  height: 400px;
   width: 95%;
-  background-color: #fff;
+  background-color: black;
   margin: 1rem 1%;
-  /* @media (min-width: 425px) and (max-width: 1024px) {
-    margin: 1rem auto;
-  }
-  @media (min-width: 425px) and (max-width: 1024px) {
-    margin: 1rem auto;
-  }
+  margin: 1.5rem 1%;
+  height: 600px;
   @media (min-width: 1024px) {
-    margin: 1rem auto;
-  } */
+    margin: 1rem 1%;
+    height: 400px;
+  }
 `
-const CardContent = styled('div')`
-  padding: 2rem;
+
+const fade = keyframes`
+  0%{
+    opacity:0.1;
+  }
+  100% {
+    opacity:1;
+  }
 `
+
+const Fade = styled('section')`
+  animation: ${fade} 2s linear;
+`
+
+const Image = styled('img')`
+  width: 100%;
+  height: 100%;
+`
+
 const IconClass = css`
-  margin: 1.5rem;
-  color: #ffffff;
-  @media (min-width: 320px) and (max-width: 425px) {
-    width: 38px;
-  }
-  @media (min-width: 426px) and (max-width: 1023px) {
-    width: 36px;
-  }
-  @media (min-width: 1024px) {
-    width: 28px;
+  margin: 3.25rem;
+  width: 60px;
+  @media (min-width: 1025px) {
+    margin: 2.35rem;
+    width: 50px;
   }
 `
 
@@ -126,21 +160,23 @@ export default () => (
           delectus mollitia, hic labore maiores sequi aliquam eius iure illum!
         </SubTitle>
       </TitleContainer>
-      <Card>
-        <CardContent>test</CardContent>
-      </Card>
-      <HalfCard>
-        <CardContent>test</CardContent>
-      </HalfCard>
-      <HalfCard>
-        <CardContent>test</CardContent>
-      </HalfCard>
-      <Card>
-        <CardContent>test</CardContent>
-      </Card>
+      <Fade>
+        <Card>
+          <Image src={'https://picsum.photos/g/600/400?image=1045'} />
+        </Card>
+        <HalfCard>
+          <Image src={'https://picsum.photos/g/600/500?image=972'} />
+        </HalfCard>
+        <HalfCard>
+          <Image src={'https://picsum.photos/g/600/500?image=965'} />
+        </HalfCard>
+        <Card>
+          <Image src={'https://picsum.photos/g/600/500?image=1033'} />
+        </Card>
+      </Fade>
     </Content>
     <Footer>
-      <SubTitle>Wasuwat Limsuparhat | 2018</SubTitle>
+      <FooterText>Wasuwat Limsuparhat | 2018</FooterText>
     </Footer>
   </Container>
 )
