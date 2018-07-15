@@ -149,7 +149,7 @@ const IconClass = css`
 export default () => (
   <Container>
     <Navbar>
-      <img src="/static/code-solid.svg" className={IconClass} alt="" />
+      <img src="./static/code-solid.svg" className={IconClass} alt="" />
     </Navbar>
     <Content>
       <TitleContainer>
