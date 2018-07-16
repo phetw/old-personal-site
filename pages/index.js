@@ -1,7 +1,7 @@
 import styled, { css, keyframes, injectGlobal } from 'react-emotion'
 
 injectGlobal`
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,500,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,700');
   html,body {
     height: 100%;
     width: 100%;
@@ -23,9 +23,15 @@ const Navbar = styled('nav')`
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 130px;
+  height: 110px;
+  @media (min-width: 320px) and (max-width: 767px) {
+    height: 130px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    height: 110px;
+  }
   @media (min-width: 1025px) {
-    height: 100px;
+    height: 90px;
   }
 `
 const Content = styled('main')`
@@ -50,16 +56,21 @@ const FooterText = styled('p')`
   color: #c7c7c7;
   padding: 2rem;
   text-align: center;
-  font-size: 4rem;
-  font-weight: 200;
-  @media (min-width: 768px) {
-    font-size: 1.3rem;
-    font-weight: 200;
+  font-weight: 300;
+  font-size: 2rem;
+  @media (max-width: 767px) {
+    font-size: 26px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1025px) {
+    font-size: 20px;
   }
 `
 
 const TitleContainer = styled('div')`
-  margin: 2.5rem 0.75rem;
+  margin: 2.75rem 1rem;
 `
 const bounce = keyframes`
   from, 20%, 53%, 80%, to {
@@ -81,17 +92,21 @@ const bounce = keyframes`
 
 const Title = styled('h1')`
   color: white;
-  font-size: 500%;
+  font-size: 5rem;
   font-weight: 700;
   animation: ${bounce} 1s ease;
   transform-origin: center bottom;
+  @media (max-width: 767px) {
+    font-size: 6.5rem;
+    color: red;
+  }
 `
 
 const SubTitle = styled('p')`
   color: #c7c7c7;
   width: 95%;
   padding-left: 0.5rem;
-  font-size: 130%;
+  font-size: 140%;
   font-weight: 300;
 `
 
@@ -119,30 +134,17 @@ const Card = styled('div')`
   }
 `
 
-const fade = keyframes`
-  0%{
-    opacity:0.1;
-  }
-  100% {
-    opacity:1;
-  }
-`
-
-const Fade = styled('section')`
-  animation: ${fade} 2s linear;
-`
-
 const Image = styled('img')`
   width: 100%;
   height: 100%;
 `
 
 const IconClass = css`
-  margin: 3.25rem;
+  margin: 2.5rem;
   width: 60px;
-  @media (min-width: 1025px) {
+  @media (max-width: 787px) {
     margin: 2.35rem;
-    width: 50px;
+    width: 70px;
   }
 `
 
@@ -160,20 +162,18 @@ export default () => (
           delectus mollitia, hic labore maiores sequi aliquam eius iure illum!
         </SubTitle>
       </TitleContainer>
-      <Fade>
-        <Card>
-          <Image src={'https://picsum.photos/g/600/400?image=1045'} />
-        </Card>
-        <HalfCard>
-          <Image src={'https://picsum.photos/g/600/500?image=972'} />
-        </HalfCard>
-        <HalfCard>
-          <Image src={'https://picsum.photos/g/600/500?image=965'} />
-        </HalfCard>
-        <Card>
-          <Image src={'https://picsum.photos/g/600/500?image=1033'} />
-        </Card>
-      </Fade>
+      <Card>
+        <Image src={'https://picsum.photos/g/600/400?image=1045'} />
+      </Card>
+      <HalfCard>
+        <Image src={'https://picsum.photos/g/600/500?image=972'} />
+      </HalfCard>
+      <HalfCard>
+        <Image src={'https://picsum.photos/g/600/500?image=965'} />
+      </HalfCard>
+      <Card>
+        <Image src={'https://picsum.photos/g/600/500?image=1033'} />
+      </Card>
     </Content>
     <Footer>
       <FooterText>Wasuwat Limsuparhat | 2018</FooterText>
