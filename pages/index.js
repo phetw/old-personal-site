@@ -48,10 +48,14 @@ const Footer = styled('footer')`
 
 const FooterText = styled('p')`
   color: #c7c7c7;
-  padding: 1.75rem;
+  padding: 2rem;
   text-align: center;
-  font-size: 1rem;
+  font-size: 4rem;
   font-weight: 200;
+  @media (min-width: 768px) {
+    font-size: 1.3rem;
+    font-weight: 200;
+  }
 `
 
 const TitleContainer = styled('div')`
@@ -99,13 +103,9 @@ const SubTitle = styled('p')`
 `
 
 const HalfCard = styled('div')`
-  background-color: #fff;
   margin: 1.5rem 1%;
   height: 600px;
   width: 95%;
-  background: url('https://picsum.photos/g/1024/600');
-  background-size: auto 100%;
-  background-repeat: no-repeat;
   @media (min-width: 1024px) {
     display: inline-block;
     margin: 0 1%;
