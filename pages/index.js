@@ -59,7 +59,7 @@ const FooterText = styled('p')`
 `
 
 const TitleContainer = styled('div')`
-  margin: 2rem 0.75rem;
+  margin: 2.5rem 0.75rem;
 `
 const bounce = keyframes`
   from, 20%, 53%, 80%, to {
@@ -81,25 +81,18 @@ const bounce = keyframes`
 
 const Title = styled('h1')`
   color: white;
-  font-size: 7rem;
+  font-size: 500%;
   font-weight: 700;
   animation: ${bounce} 1s ease;
   transform-origin: center bottom;
-  @media (min-width: 768px) {
-    font-size: 3rem;
-  }
 `
 
 const SubTitle = styled('p')`
   color: #c7c7c7;
   width: 95%;
-  padding-left: 0.45rem;
-  font-size: 3rem;
-  font-weight: 500;
-  @media (min-width: 768px) {
-    font-size: 1.45rem;
-    font-weight: 200;
-  }
+  padding-left: 0.5rem;
+  font-size: 130%;
+  font-weight: 300;
 `
 
 const HalfCard = styled('div')`
