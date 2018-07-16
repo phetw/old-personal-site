@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "npm run build && next export -o docs & git add . && git commit -m '[📦]deploying new built' && git push origin master"
+    "deploy": "npm run build && next export -o docs && git add . && git commit -m '[📦]deploying new built' && git push origin master"
   },
   "repository": {
     "type": "git",

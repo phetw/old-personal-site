@@ -59,13 +59,13 @@ const FooterText = styled('p')`
   font-weight: 300;
   font-size: 2rem;
   @media (max-width: 767px) {
-    font-size: 26px;
+    font-size: 2rem;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
-    font-size: 20px;
+    font-size: 1.2rem;
   }
   @media (min-width: 1025px) {
-    font-size: 20px;
+    font-size: 1rem;
   }
 `
 
