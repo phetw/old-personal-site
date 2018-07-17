@@ -1,5 +1,5 @@
 {
-  "name": "minimal-dark-web-design",
+  "name": "my-portfolio",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,23 +9,16 @@
     "start": "next start",
     "deploy": "npm run build && next export -o docs && git add . && git commit -m '[📦]deploying new built' && git push origin master"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rappad/minimal-dark-web-design.git"
-  },
   "author": "Wasuwat Limsuparhat",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rappad/minimal-dark-web-design/issues"
-  },
   "homepage": "https://github.com/rappad/minimal-dark-web-design#readme",
   "dependencies": {
-    "babel-plugin-emotion": "^9.2.6",
-    "emotion": "^9.2.6",
-    "emotion-server": "^9.2.6",
     "next": "^6.1.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-emotion": "^9.2.6"
+    "styled-components": "^3.3.3"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.1.5"
   }
 }

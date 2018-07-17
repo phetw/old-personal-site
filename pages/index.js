@@ -1,4 +1,4 @@
-import styled, { css, keyframes, injectGlobal } from 'react-emotion'
+import styled, { css, keyframes, injectGlobal } from 'styled-components'
 
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,700');
@@ -10,14 +10,14 @@ injectGlobal`
     font-family: 'Montserrat', sans-serif;
   }
 `
-const Container = styled('div')`
+const Container = styled.div`
   min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   background-color: black;
 `
-const Navbar = styled('nav')`
+const Navbar = styled.nav`
   order: 1;
   width: 100%;
   display: flex;
@@ -25,24 +25,27 @@ const Navbar = styled('nav')`
   align-items: center;
   height: 110px;
   @media (min-width: 320px) and (max-width: 767px) {
-    height: 130px;
+    height: 100px;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
-    height: 110px;
+    height: 120px;
   }
   @media (min-width: 1025px) {
-    height: 90px;
+    height: 115px;
   }
 `
-const Content = styled('main')`
+const Content = styled.main`
   order: 2;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
   padding: 0rem 1.5rem 2rem 3rem;
+  @media (max-width: 425px) {
+    padding: 0;
+  }
 `
 
-const Footer = styled('footer')`
+const Footer = styled.footer`
   order: 3;
   flex-shrink: 0;
   text-align: center;
@@ -52,14 +55,13 @@ const Footer = styled('footer')`
   color: white;
 `
 
-const FooterText = styled('p')`
+const FooterText = styled.p`
   color: #c7c7c7;
   padding: 2rem;
   text-align: center;
   font-weight: 300;
-  font-size: 2rem;
   @media (max-width: 767px) {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
     font-size: 1.2rem;
@@ -69,8 +71,12 @@ const FooterText = styled('p')`
   }
 `
 
-const TitleContainer = styled('div')`
-  margin: 2.75rem 1rem;
+const TitleContainer = styled.div`
+  margin: 2.5rem 1rem;
+  @media (max-width: 425px) {
+    padding: 0.5rem;
+    margin: 1rem;
+  }
 `
 const bounce = keyframes`
   from, 20%, 53%, 80%, to {
@@ -90,19 +96,18 @@ const bounce = keyframes`
   }
 `
 
-const Title = styled('h1')`
+const Title = styled.h1`
   color: white;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 700;
   animation: ${bounce} 1s ease;
   transform-origin: center bottom;
   @media (max-width: 767px) {
-    font-size: 6.5rem;
-    color: red;
+    font-size: 3rem;
   }
 `
 
-const SubTitle = styled('p')`
+const SubTitle = styled.p`
   color: #c7c7c7;
   width: 95%;
   padding-left: 0.5rem;
@@ -110,10 +115,13 @@ const SubTitle = styled('p')`
   font-weight: 300;
 `
 
-const HalfCard = styled('div')`
+const HalfCard = styled.div`
   margin: 1.5rem 1%;
   height: 600px;
   width: 95%;
+  @media (min-width: 320px) and (max-width: 1023px) {
+    margin: 1rem auto;
+  }
   @media (min-width: 1024px) {
     display: inline-block;
     margin: 0 1%;
@@ -122,36 +130,41 @@ const HalfCard = styled('div')`
   }
 `
 
-const Card = styled('div')`
+const Card = styled.div`
   width: 95%;
   background-color: black;
   margin: 1rem 1%;
   margin: 1.5rem 1%;
   height: 600px;
+  @media (min-width: 320px) and (max-width: 1023px) {
+    margin: 1rem auto;
+  }
   @media (min-width: 1024px) {
     margin: 1rem 1%;
     height: 400px;
   }
 `
 
-const Image = styled('img')`
+const Image = styled.img`
   width: 100%;
   height: 100%;
 `
 
-const IconClass = css`
-  margin: 2.5rem;
-  width: 60px;
-  @media (max-width: 787px) {
-    margin: 2.35rem;
-    width: 70px;
+const Icon = styled.img`
+  @media (max-width: 767px) {
+    margin: 2rem;
+    width: 50px;
+  }
+  @media (min-width: 768px) {
+    margin: 3rem;
+    width: 75px;
   }
 `
 
 export default () => (
   <Container>
     <Navbar>
-      <img src="./static/code-solid.svg" className={IconClass} alt="" />
+      <Icon src={'./static/code-solid.svg'} />
     </Navbar>
     <Content>
       <TitleContainer>
