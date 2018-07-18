@@ -210,9 +210,9 @@ const ProfileContent = BoxContent.extend`
   li {
     margin: 1rem 0;
     list-style-type: circle;
-    span {
-      color: #c7c7c7;
-    }
+  }
+  span {
+    color: #c7c7c7;
   }
   @media (min-width: 768px) {
     margin: auto 0;
