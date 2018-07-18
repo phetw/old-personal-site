@@ -210,7 +210,7 @@ const ProfileContent = BoxContent.extend`
   li {
     margin: 1rem 0;
     list-style-type: circle;
-    p {
+    span {
       color: #c7c7c7;
     }
   }
@@ -245,16 +245,16 @@ export default class extends Component {
             </ProfileImage>
             <ProfileContent>
               <li>
-                <p>{name}</p>
+                <span>{name}</span>
               </li>
               <li>
-                <p>Location : {location}</p>
+                <span>Location : {location}</span>
               </li>
               <li>
-                <p>Fluent English and Thai</p>
+                <span>Fluent English and Thai</span>
               </li>
               <li>
-                <p>Hired at : {company}</p>
+                <span>Hired at : {company}</span>
               </li>
             </ProfileContent>
           </Box>
