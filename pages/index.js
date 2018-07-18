@@ -208,6 +208,7 @@ const ProfileContent = BoxContent.extend`
     margin-left: 1.5rem;
   }
   li {
+    color: #c7c7c7;
     margin: 1rem 0;
     list-style-type: circle;
   }
