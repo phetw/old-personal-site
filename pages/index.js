@@ -208,9 +208,11 @@ const ProfileContent = BoxContent.extend`
     margin-left: 1.5rem;
   }
   li {
-    color: #c7c7c7 !important;
     margin: 1rem 0;
     list-style-type: circle;
+    p {
+      color: #c7c7c7;
+    }
   }
   @media (min-width: 768px) {
     margin: auto 0;
@@ -242,10 +244,18 @@ export default class extends Component {
               <img src={avatar_url} alt="Profile image" />
             </ProfileImage>
             <ProfileContent>
-              <li>{name}</li>
-              <li>Location : {location}</li>
-              <li>Fluent English and Thai</li>
-              <li>Hired at : {company}</li>
+              <li>
+                <p>{name}</p>
+              </li>
+              <li>
+                <p>Location : {location}</p>
+              </li>
+              <li>
+                <p>Fluent English and Thai</p>
+              </li>
+              <li>
+                <p>Hired at : {company}</p>
+              </li>
             </ProfileContent>
           </Box>
           <Box>
