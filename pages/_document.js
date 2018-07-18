@@ -13,8 +13,9 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Hello world</title>
+          <title>Hi there!</title>
           <meta name="viewport" content="width=device-width" />
+          <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,400" rel="stylesheet" />
           {this.props.styleTags}
         </Head>
         <body>

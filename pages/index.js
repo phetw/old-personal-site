@@ -1,13 +1,14 @@
+import { Component } from 'react'
+import axios from 'axios'
 import styled, { css, keyframes, injectGlobal } from 'styled-components'
 
 injectGlobal`
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,700');
   html,body {
     height: 100%;
     width: 100%;
     margin: 0;
     background-color: black;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto Mono', sans-serif;
   }
 `
 const Container = styled.div`
@@ -25,13 +26,10 @@ const Navbar = styled.nav`
   align-items: center;
   height: 110px;
   @media (min-width: 320px) and (max-width: 767px) {
-    height: 100px;
+    height: 110px;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    height: 120px;
-  }
-  @media (min-width: 1025px) {
-    height: 115px;
+  @media (min-width: 768px) {
+    height: 135px;
   }
 `
 const Content = styled.main`
@@ -39,9 +37,19 @@ const Content = styled.main`
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
-  padding: 0rem 1.5rem 2rem 3rem;
-  @media (max-width: 425px) {
-    padding: 0;
+  /* padding: 0rem 1.5rem 2rem 3rem; */
+  padding: 2rem;
+  @media (min-width: 320px) and (max-width: 425px) {
+    padding: 0 1rem;
+  }
+  @media (min-width: 426px) and (max-width: 767px) {
+    padding: 0 2.5rem;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    padding: 0 5rem;
+  }
+  @media (min-width: 1025px) {
+    padding: 0 15%;
   }
 `
 
@@ -59,23 +67,21 @@ const FooterText = styled.p`
   color: #c7c7c7;
   padding: 2rem;
   text-align: center;
-  font-weight: 300;
-  @media (max-width: 767px) {
-    font-size: 1.2rem;
-  }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    font-size: 1.2rem;
-  }
-  @media (min-width: 1025px) {
-    font-size: 1rem;
-  }
+  font-size: 1rem;
+  font-weight: 100;
 `
 
 const TitleContainer = styled.div`
-  margin: 2.5rem 1rem;
-  @media (max-width: 425px) {
+  /* margin: 2.5rem 1rem; */
+  /* @media (min-width: 425px) {
     padding: 0.5rem;
     margin: 1rem;
+  } */
+  @media (max-width: 425px) {
+    padding: 0.75rem;
+  }
+  @media (min-width: 426px) {
+    padding: 1rem;
   }
 `
 const bounce = keyframes`
@@ -98,12 +104,17 @@ const bounce = keyframes`
 
 const Title = styled.h1`
   color: white;
-  font-size: 4rem;
-  font-weight: 700;
+  font-weight: 400;
   animation: ${bounce} 1s ease;
   transform-origin: center bottom;
-  @media (max-width: 767px) {
+  @media (max-width: 375px) {
+    font-size: 2.45rem;
+  }
+  @media (min-width: 376px) and (max-width: 767px) {
     font-size: 3rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 4rem;
   }
 `
 
@@ -111,85 +122,155 @@ const SubTitle = styled.p`
   color: #c7c7c7;
   width: 95%;
   padding-left: 0.5rem;
-  font-size: 140%;
-  font-weight: 300;
-`
-
-const HalfCard = styled.div`
-  margin: 1.5rem 1%;
-  height: 600px;
-  width: 95%;
-  @media (min-width: 320px) and (max-width: 1023px) {
-    margin: 1rem auto;
+  font-weight: 100;
+  @media (max-width: 375px) {
+    font-size: 1rem;
   }
-  @media (min-width: 1024px) {
-    display: inline-block;
-    margin: 0 1%;
-    height: 400px;
-    width: 46.5%;
+  @media (min-width: 376px) and (max-width: 767px) {
+    font-size: 1.1rem;
   }
-`
-
-const Card = styled.div`
-  width: 95%;
-  background-color: black;
-  margin: 1rem 1%;
-  margin: 1.5rem 1%;
-  height: 600px;
-  @media (min-width: 320px) and (max-width: 1023px) {
-    margin: 1rem auto;
+  @media (min-width: 768px) {
+    font-size: 1.2rem;
   }
-  @media (min-width: 1024px) {
-    margin: 1rem 1%;
-    height: 400px;
-  }
-`
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
 `
 
 const Icon = styled.img`
   @media (max-width: 767px) {
-    margin: 2rem;
-    width: 50px;
+    margin: 2.5rem;
+    width: 40px;
   }
   @media (min-width: 768px) {
     margin: 3rem;
-    width: 75px;
+    width: 50px;
   }
 `
 
-export default () => (
-  <Container>
-    <Navbar>
-      <Icon src={'./static/code-solid.svg'} />
-    </Navbar>
-    <Content>
-      <TitleContainer>
-        <Title>Hello world</Title>
-        <SubTitle>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quos libero sit velit corrupti excepturi dicta quo rerum, consectetur
-          aut at neque ut cum harum dolores vel magni reiciendis iste laboriosam labore, nesciunt blanditiis. Animi in, recusandae autem quis at
-          delectus mollitia, hic labore maiores sequi aliquam eius iure illum!
-        </SubTitle>
-      </TitleContainer>
-      <Card>
-        <Image src={'https://picsum.photos/g/600/400?image=1045'} />
-      </Card>
-      <HalfCard>
-        <Image src={'https://picsum.photos/g/600/500?image=972'} />
-      </HalfCard>
-      <HalfCard>
-        <Image src={'https://picsum.photos/g/600/500?image=965'} />
-      </HalfCard>
-      <Card>
-        <Image src={'https://picsum.photos/g/600/500?image=1033'} />
-      </Card>
-    </Content>
-    <Footer>
-      <FooterText>Wasuwat Limsuparhat | 2018</FooterText>
-    </Footer>
-  </Container>
-)
+const Box = styled.div`
+  width: 100%;
+  margin: 1rem 0;
+  border: 1px solid white;
+  background-color: black;
+`
+
+const ImageContainer = styled.div`
+  @media (max-width: 767px) {
+    margin: 1rem;
+  }
+  @media (min-width: 768px) {
+    margin: 2rem;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`
+
+const BoxContent = styled.p`
+  color: #c7c7c7;
+  margin: 2.35rem;
+  font-size: 0.95rem;
+  font-weight: 100;
+  word-wrap: normal;
+  @media (max-width: 426px) {
+    margin: 1.5rem;
+    line-height: 1.65rem;
+  }
+`
+
+const QuoteContent = BoxContent.extend`
+  text-align: center;
+  q {
+    font-style: italic;
+  }
+`
+
+const ImageCaption = BoxContent.extend`
+  font-size: 0.75rem;
+  margin: 2rem;
+  text-align: center;
+`
+
+const ProfileImage = ImageContainer.extend`
+  @media (min-width: 426px) and (max-width: 767px) {
+    margin: 2rem;
+  }
+  @media (min-width: 768px) {
+    width: 40%;
+    display: inline-block;
+    img {
+    }
+  }
+`
+
+const ProfileContent = BoxContent.extend`
+  margin-left: 2.5rem;
+  @media (max-width: 425px) {
+    margin-left: 1.5rem;
+  }
+  li {
+    margin: 1rem 0;
+    list-style-type: circle;
+  }
+  @media (min-width: 768px) {
+    margin: auto 0;
+    width: 50%;
+    display: inline-block;
+  }
+`
+
+export default class extends Component {
+  static async getInitialProps() {
+    const { data } = await axios.get('https://api.github.com/users/rappad')
+    return { data }
+  }
+
+  render() {
+    const { avatar_url, name, location, company, bio } = this.props.data
+    return (
+      <Container>
+        <Navbar>
+          <Icon src={'./static/code-solid.svg'} />
+        </Navbar>
+        <Content>
+          <TitleContainer>
+            <Title>Hello world</Title>
+            <SubTitle>This is a sample SSR website made by Next.js and styled-components.</SubTitle>
+          </TitleContainer>
+          <Box>
+            <ProfileImage>
+              <img src={avatar_url} alt="Profile image" />
+            </ProfileImage>
+            <ProfileContent>
+              <li>{name}</li>
+              <li>Location : {location}</li>
+              <li>Fluent English and Thai</li>
+              <li>Hired at : {company}</li>
+            </ProfileContent>
+          </Box>
+          <Box>
+            <QuoteContent>
+              <q>{bio}</q>
+            </QuoteContent>
+          </Box>
+          <Box>
+            <BoxContent>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab corporis earum, illo id ut quos consequatur impedit atque ipsa delectus
+              aliquid recusandae magni, doloremque, cum asperiores culpa maiores fuga dolores! Dolorem consequuntur cupiditate est cumque, molestiae
+              cum ipsum odit aspernatur ratione, unde quo aperiam? Obcaecati necessitatibus expedita assumenda exercitationem ipsum quo ratione illum
+              recusandae veritatis nemo voluptatem dolore tempore officiis nulla aliquam debitis corrupti id iure consequuntur, odit delectus?
+            </BoxContent>
+          </Box>
+          <Box>
+            <ImageContainer>
+              <img src={'https://picsum.photos/g/500/300?image=1045'} alt="demo img" />
+            </ImageContainer>
+            <ImageCaption>This is image caption.</ImageCaption>
+          </Box>
+        </Content>
+        <Footer>
+          <FooterText>Wasuwat Limsuparhat | 2018</FooterText>
+        </Footer>
+      </Container>
+    )
+  }
+}
