@@ -20,10 +20,10 @@ export default class MyDocument extends Document {
           <meta key="twitter-card" name="twitter:card" content="summary" />
           <meta key="twitter-site" name="twitter:site" content="@ianmitchel1" />
           <meta key="twitter-description" name="twitter:description" />
-          <meta key="twitter-image" name="twitter:image" content={image} />
+          <meta key="twitter-image" name="twitter:image" content="https://picsum.photos/g/1200/630?image=1045" />
           <meta key="facebook-type" property="og:type" content="article" />
           <meta key="facebook-description" property="og:description" />
-          <meta key="facebook-image" property="og:image" content={image} />
+          <meta key="facebook-image" property="og:image" content="https://picsum.photos/g/1200/630?image=1045" />
           {this.props.styleTags}
         </Head>
         <body>
