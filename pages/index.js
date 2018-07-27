@@ -7,6 +7,7 @@ injectGlobal`
     height: 100%;
     width: 100%;
     margin: 0;
+    color:#c7c7c7;
     background-color: black;
     font-family: 'Roboto Mono', sans-serif;
   }
@@ -267,10 +268,10 @@ export default class extends Component {
           </Box>
           <Box>
             <BoxContent>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab corporis earum, illo id ut quos consequatur impedit atque ipsa delectus
-              aliquid recusandae magni, doloremque, cum asperiores culpa maiores fuga dolores! Dolorem consequuntur cupiditate est cumque, molestiae
-              cum ipsum odit aspernatur ratione, unde quo aperiam? Obcaecati necessitatibus expedita assumenda exercitationem ipsum quo ratione illum
-              recusandae veritatis nemo voluptatem dolore tempore officiis nulla aliquam debitis corrupti id iure consequuntur, odit delectus?
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab corporis earum, illo id ut quos consequatur impedit atque ipsa delectus aliquid recusandae magni, doloremque, cum
+              asperiores culpa maiores fuga dolores! Dolorem consequuntur cupiditate est cumque, molestiae cum ipsum odit aspernatur ratione, unde quo aperiam? Obcaecati necessitatibus
+              expedita assumenda exercitationem ipsum quo ratione illum recusandae veritatis nemo voluptatem dolore tempore officiis nulla aliquam debitis corrupti id iure consequuntur, odit
+              delectus?
             </BoxContent>
           </Box>
           <Box>
