@@ -24,7 +24,7 @@ const ProgressBar = styled.div`
   height: 3px;
   background-color: white;
   position: absolute;
-  animation: ${expandWidth} 400ms linear;
+  animation: ${expandWidth} 600ms linear;
 `
 
 const Spinner = styled.div`
@@ -37,7 +37,7 @@ const Spinner = styled.div`
   margin: 1.5rem;
   border: 2px solid #fff;
   border-radius: 50%;
-  animation: ${ring} 400ms linear infinite;
+  animation: ${ring} 600ms linear infinite;
   border-color: #fff transparent transparent transparent;
 `
 
