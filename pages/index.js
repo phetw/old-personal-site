@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import axios from 'axios'
-import styled, { css, keyframes, injectGlobal } from 'styled-components'
+import styled, { keyframes, injectGlobal } from 'styled-components'
+import Loader from '../components/Loader'
 
 injectGlobal`
   html,body {
@@ -19,6 +20,7 @@ const Container = styled.div`
   justify-content: flex-start;
   background-color: black;
 `
+
 const Navbar = styled.nav`
   order: 1;
   width: 100%;
@@ -111,6 +113,14 @@ const Title = styled.h1`
   @media (min-width: 376px) {
     font-size: 3rem;
   }
+`
+
+const SubTitle = styled.p`
+  color: #c7c7c7;
+  width: 95%;
+  padding: 0.25rem 1.5rem;
+  font-weight: 400;
+  font-size: 1.25rem;
 `
 
 const Icon = styled.img`
@@ -221,17 +231,38 @@ const ProfileContent = BoxContent.extend`
 `
 
 export default class extends Component {
+  state = {
+    isLoading: true
+  }
   static async getInitialProps() {
     const { data } = await axios.get('https://api.github.com/users/rappad')
     return { data }
   }
 
+  componentDidMount() {
+    this.initLoader()
+  }
+
+  initLoader() {
+    setTimeout(() => {
+      this.setState({
+        isLoading: false
+      })
+    }, 350)
+  }
+
   render() {
     const { avatar_url, name, location, company, bio } = this.props.data
+    const { isLoading } = this.state
+
+    if (isLoading) {
+      return <Loader />
+    }
+
     return (
       <Container>
         <Navbar>
-          <Icon src={'./static/code-solid.svg'} />
+          <Icon id="logo" src={'./static/code-solid.svg'} />
         </Navbar>
         <Content>
           <TitleContainer>
@@ -260,11 +291,25 @@ export default class extends Component {
             </ProfileContent>
           </Box>
           <Box>
+            <SubTitle>What I do</SubTitle>
             <BoxContent>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab corporis earum, illo id ut quos consequatur impedit atque ipsa delectus aliquid recusandae magni, doloremque, cum
-              asperiores culpa maiores fuga dolores! Dolorem consequuntur cupiditate est cumque, molestiae cum ipsum odit aspernatur ratione, unde quo aperiam? Obcaecati necessitatibus
-              expedita assumenda exercitationem ipsum quo ratione illum recusandae veritatis nemo voluptatem dolore tempore officiis nulla aliquam debitis corrupti id iure consequuntur, odit
-              delectus?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima consectetur perspiciatis provident autem tempore veniam, illum ad facere, deserunt consequatur laudantium quo
+              sequi quos repudiandae corrupti. Ipsum aliquid, fuga velit eum soluta esse rem architecto laborum suscipit minus nostrum sapiente quas cupiditate voluptas enim voluptates
+              omnis, aliquam nulla accusantium laudantium?
+            </BoxContent>
+          </Box>
+          <Box>
+            <SubTitle>These days...</SubTitle>
+            <BoxContent>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit iure eligendi voluptatum odit corporis quasi voluptas, ipsam doloremque ea eius. Quas, sunt iste. Eaque tempora
+              esse impedit illo, perspiciatis officiis.
+            </BoxContent>
+            <BoxContent>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam soluta numquam ipsam, quos modi nulla aut aliquid quia dolor quis ab deserunt delectus voluptatem nam aspernatur
+              neque totam a autem animi facilis odio blanditiis at dignissimos ad. Quasi expedita voluptatem distinctio pariatur ad, ea explicabo velit rerum ab temporibus nesciunt optio
+              deserunt aspernatur architecto harum tenetur nam, qui nostrum molestiae consequatur, reprehenderit odio recusandae ipsa! Sapiente iusto nisi consequatur aut, minima quas
+              pariatur velit quo. Aperiam hic, corporis eaque excepturi ratione fugiat cumque reprehenderit optio ad nostrum sequi corrupti aliquid in. Beatae officia quia corrupti dolor
+              mollitia voluptatibus numquam perspiciatis?
             </BoxContent>
           </Box>
           <Box>
@@ -274,7 +319,7 @@ export default class extends Component {
           </Box>
           <Box>
             <ImageContainer>
-              <img src={'https://picsum.photos/g/500/300?image=1045'} alt="demo img" />
+              <img src={'https://picsum.photos/g/500/300?image=1045'} alt="placeholder image" />
             </ImageContainer>
             <ImageCaption>This is image caption.</ImageCaption>
           </Box>
