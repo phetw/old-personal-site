@@ -234,21 +234,23 @@ export default class extends Component {
   state = {
     isLoading: true
   }
+
   static async getInitialProps() {
     const { data } = await axios.get('https://api.github.com/users/rappad')
     return { data }
   }
 
   componentDidMount() {
-    this.initLoader()
+    this.updateLoadingStatus()
   }
 
-  initLoader() {
-    setTimeout(() => {
+  updateLoadingStatus = () => {
+    console.log(this.props.data)
+    if (this.props.data) {
       this.setState({
         isLoading: false
       })
-    }, 300)
+    }
   }
 
   render() {
