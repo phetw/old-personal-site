@@ -10,12 +10,20 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    const image = '/static/helloworld.jpg'
     return (
       <html>
         <Head>
           <title>Hi there! 🙌</title>
           <meta name="viewport" content="width=device-width" />
           <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,400" rel="stylesheet" />
+          <meta key="twitter-card" name="twitter:card" content="summary" />
+          <meta key="twitter-site" name="twitter:site" content="@ianmitchel1" />
+          <meta key="twitter-description" name="twitter:description" />
+          <meta key="twitter-image" name="twitter:image" content={image} />
+          <meta key="facebook-type" property="og:type" content="article" />
+          <meta key="facebook-description" property="og:description" />
+          <meta key="facebook-image" property="og:image" content={image} />
           {this.props.styleTags}
         </Head>
         <body>

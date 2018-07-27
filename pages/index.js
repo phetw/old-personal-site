@@ -76,10 +76,10 @@ const FooterText = styled.p`
 
 const TitleContainer = styled.div`
   @media (max-width: 425px) {
-    padding: 0.75rem;
+    padding: 0.5rem;
   }
   @media (min-width: 426px) {
-    padding: 1rem;
+    padding: 0.25rem;
   }
 `
 const bounce = keyframes`
@@ -108,27 +108,8 @@ const Title = styled.h1`
   @media (max-width: 375px) {
     font-size: 2.45rem;
   }
-  @media (min-width: 376px) and (max-width: 767px) {
+  @media (min-width: 376px) {
     font-size: 3rem;
-  }
-  @media (min-width: 768px) {
-    font-size: 4rem;
-  }
-`
-
-const SubTitle = styled.p`
-  color: #c7c7c7;
-  width: 95%;
-  padding-left: 0.5rem;
-  font-weight: 100;
-  @media (max-width: 375px) {
-    font-size: 1rem;
-  }
-  @media (min-width: 376px) and (max-width: 767px) {
-    font-size: 1.1rem;
-  }
-  @media (min-width: 768px) {
-    font-size: 1.2rem;
   }
 `
 
@@ -255,7 +236,6 @@ export default class extends Component {
         <Content>
           <TitleContainer>
             <Title>Hello world</Title>
-            {/* <SubTitle>A javascript developer, cryptocurrencies and blockchain ethusiast.</SubTitle> */}
           </TitleContainer>
           <Box>
             <ProfileImageContainer>
