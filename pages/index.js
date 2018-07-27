@@ -214,6 +214,7 @@ const ProfileContent = BoxContent.extend`
   }
   ul li span {
     color: #c7c7c7;
+    font-weight: 100;
   }
   @media (min-width: 768px) {
     margin: auto 0;
