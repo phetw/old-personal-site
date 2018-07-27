@@ -38,19 +38,21 @@ const Content = styled.main`
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
-  /* padding: 0rem 1.5rem 2rem 3rem; */
   padding: 2rem;
   @media (min-width: 320px) and (max-width: 425px) {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
-  @media (min-width: 426px) and (max-width: 767px) {
-    padding: 0 2.5rem;
+  @media (min-width: 426px) and (max-width: 600px) {
+    padding: 0 12%;
+  }
+  @media (min-width: 600px) and (max-width: 767px) {
+    padding: 0 15%;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
-    padding: 0 5rem;
+    padding: 0 18%;
   }
   @media (min-width: 1025px) {
-    padding: 0 15%;
+    padding: 0 25%;
   }
 `
 
@@ -73,11 +75,6 @@ const FooterText = styled.p`
 `
 
 const TitleContainer = styled.div`
-  /* margin: 2.5rem 1rem; */
-  /* @media (min-width: 425px) {
-    padding: 0.5rem;
-    margin: 1rem;
-  } */
   @media (max-width: 425px) {
     padding: 0.75rem;
   }
@@ -136,7 +133,11 @@ const SubTitle = styled.p`
 `
 
 const Icon = styled.img`
-  @media (max-width: 767px) {
+  @media (max-width: 425px) {
+    margin: 1.75rem;
+    width: 40px;
+  }
+  @media (min-width: 426px) and (max-width: 767px) {
     margin: 2.5rem;
     width: 40px;
   }
@@ -166,7 +167,7 @@ const ImageContainer = styled.div`
   }
 `
 
-const BoxContent = styled.p`
+const BoxContent = styled.div`
   color: #c7c7c7;
   margin: 2.35rem;
   font-size: 0.95rem;
@@ -191,35 +192,50 @@ const ImageCaption = BoxContent.extend`
   text-align: center;
 `
 
-const ProfileImage = ImageContainer.extend`
-  @media (min-width: 426px) and (max-width: 767px) {
-    margin: 2rem;
+const ProfileImageContainer = ImageContainer.extend`
+  img {
+    width: 100%;
+    border-radius: 50%;
   }
-  @media (min-width: 768px) {
-    width: 40%;
-    display: inline-block;
+  @media (max-width: 525px) {
+    width: 75%;
+    margin: 2rem auto;
     img {
+      margin: 0 auto;
     }
+  }
+  @media (min-width: 526px) {
+    width: 30%;
+    display: inline-block;
   }
 `
 
 const ProfileContent = BoxContent.extend`
   margin-left: 2.5rem;
-  @media (max-width: 425px) {
+  @media (max-width: 525px) {
     margin-left: 1.5rem;
+    ul li {
+      margin: 1rem 0;
+      list-style-type: circle;
+    }
+    ul li span {
+      color: #c7c7c7;
+      font-weight: 100;
+    }
   }
-  ul li {
-    margin: 1rem 0;
-    list-style-type: circle;
-  }
-  ul li span {
-    color: #c7c7c7;
-    font-weight: 100;
-  }
-  @media (min-width: 768px) {
-    margin: auto 0;
+
+  @media (min-width: 526px) {
+    margin: 1rem;
     width: 50%;
     display: inline-block;
+    ul li {
+      margin: 1rem 0;
+      list-style-type: circle;
+    }
+    ul li span {
+      color: #c7c7c7;
+      font-weight: 100;
+    }
   }
 `
 
@@ -239,33 +255,29 @@ export default class extends Component {
         <Content>
           <TitleContainer>
             <Title>Hello world</Title>
-            <SubTitle>This is a sample SSR website made by Next.js and styled-components.</SubTitle>
+            {/* <SubTitle>A javascript developer, cryptocurrencies and blockchain ethusiast.</SubTitle> */}
           </TitleContainer>
           <Box>
-            <ProfileImage>
+            <ProfileImageContainer>
               <img src={avatar_url} alt="Profile image" />
-            </ProfileImage>
+            </ProfileImageContainer>
             <ProfileContent>
+              <h2>Who am I</h2>
               <ul>
                 <li>
                   <span>{name}</span>
                 </li>
                 <li>
-                  <span>Location : {location}</span>
+                  <span>{location}</span>
                 </li>
                 <li>
                   <span>Fluent English and Thai</span>
                 </li>
                 <li>
-                  <span>Hired at : {company}</span>
+                  <span>Hired : {company}</span>
                 </li>
               </ul>
             </ProfileContent>
-          </Box>
-          <Box>
-            <QuoteContent>
-              <q>{bio}</q>
-            </QuoteContent>
           </Box>
           <Box>
             <BoxContent>
@@ -274,6 +286,11 @@ export default class extends Component {
               expedita assumenda exercitationem ipsum quo ratione illum recusandae veritatis nemo voluptatem dolore tempore officiis nulla aliquam debitis corrupti id iure consequuntur, odit
               delectus?
             </BoxContent>
+          </Box>
+          <Box>
+            <QuoteContent>
+              <q>{bio}</q>
+            </QuoteContent>
           </Box>
           <Box>
             <ImageContainer>
