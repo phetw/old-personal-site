@@ -248,7 +248,7 @@ export default class extends Component {
       this.setState({
         isLoading: false
       })
-    }, 600)
+    }, 300)
   }
 
   render() {
