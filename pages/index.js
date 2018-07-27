@@ -13,6 +13,19 @@ injectGlobal`
     font-family: 'Roboto Mono', sans-serif;
   }
 `
+
+const expandWidth = keyframes`
+    from { width: 0vw; }
+    to   { width: 100vw; }
+`
+const ProgressBar = styled.div`
+  width: 0vw;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  animation: ${expandWidth} 400ms ease-in;
+`
+
 const Container = styled.div`
   min-height: 100%;
   display: flex;
@@ -231,38 +244,16 @@ const ProfileContent = BoxContent.extend`
 `
 
 export default class extends Component {
-  state = {
-    isLoading: false
-  }
-
   static async getInitialProps() {
     const { data } = await axios.get('https://api.github.com/users/rappad')
     return { data }
   }
 
-  componentDidMount() {
-    this.updateLoadingStatus()
-  }
-
-  updateLoadingStatus = () => {
-    console.log(this.props.data)
-    if (this.props.data) {
-      this.setState({
-        isLoading: false
-      })
-    }
-  }
-
   render() {
     const { avatar_url, name, location, company, bio } = this.props.data
-    const { isLoading } = this.state
-
-    if (isLoading) {
-      return <Loader />
-    }
-
     return (
       <Container>
+        <ProgressBar />
         <Navbar>
           <Icon id="logo" src={'./static/code-solid.svg'} />
         </Navbar>
