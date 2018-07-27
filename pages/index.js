@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import axios from 'axios'
 import styled, { keyframes, injectGlobal } from 'styled-components'
-import Loader from '../components/Loader'
 
 injectGlobal`
   html,body {
@@ -166,6 +165,7 @@ const ImageContainer = styled.div`
     margin: 2rem;
   }
   img {
+    filter: grayscale();
     width: 100%;
     height: 100%;
   }
@@ -198,6 +198,7 @@ const ImageCaption = BoxContent.extend`
 
 const ProfileImageContainer = ImageContainer.extend`
   img {
+    filter: none;
     width: 100%;
     border-radius: 50%;
   }
@@ -242,7 +243,6 @@ const ProfileContent = BoxContent.extend`
     }
   }
 `
-
 export default class extends Component {
   static async getInitialProps() {
     const { data } = await axios.get('https://api.github.com/users/rappad')
@@ -250,7 +250,13 @@ export default class extends Component {
   }
 
   render() {
-    const { avatar_url, name, location, company, bio } = this.props.data
+    const {
+      avatar_url = 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png',
+      name = 'Wasuwat Limsuparhat',
+      location = 'Thailand',
+      company = '',
+      bio = ''
+    } = this.props.data
     return (
       <Container>
         <ProgressBar />
@@ -262,11 +268,11 @@ export default class extends Component {
             <Title>Hello world</Title>
           </TitleContainer>
           <Box>
-            <ProfileImageContainer>
+            <ProfileImageContainer profile>
               <img src={avatar_url} alt="Profile image" />
             </ProfileImageContainer>
             <ProfileContent>
-              <h2>Who am I</h2>
+              <SubTitle>Who am I</SubTitle>
               <ul>
                 <li>
                   <span>{name}</span>
@@ -286,23 +292,29 @@ export default class extends Component {
           <Box>
             <SubTitle>What I do</SubTitle>
             <BoxContent>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima consectetur perspiciatis provident autem tempore veniam, illum ad facere, deserunt consequatur laudantium quo
-              sequi quos repudiandae corrupti. Ipsum aliquid, fuga velit eum soluta esse rem architecto laborum suscipit minus nostrum sapiente quas cupiditate voluptas enim voluptates
-              omnis, aliquam nulla accusantium laudantium?
+              I'm a fresh graduate and I'm currently work as a software developer at Nextzy Technologies where I had done my
+              internship at since January of 2018. I am currently into a lot of Javascript especially with React.js. But
+              nervertheless, I frequently get to work with Angular and a lot of Node.js.
             </BoxContent>
           </Box>
           <Box>
             <SubTitle>These days...</SubTitle>
             <BoxContent>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit iure eligendi voluptatum odit corporis quasi voluptas, ipsam doloremque ea eius. Quas, sunt iste. Eaque tempora
-              esse impedit illo, perspiciatis officiis.
+              I got into cryptocurrencies during mid of 2017 due to my interest in investment. But after a while when I learn
+              about the theory behind each cryptocurrencies, I was sure that the blockchain technology has a large potential in
+              many areas and I wish to be part of that especially during the early stages. Apart from that, I am currently
+              learning Golang for its best talent, concurrency and simplicity.
             </BoxContent>
             <BoxContent>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam soluta numquam ipsam, quos modi nulla aut aliquid quia dolor quis ab deserunt delectus voluptatem nam aspernatur
-              neque totam a autem animi facilis odio blanditiis at dignissimos ad. Quasi expedita voluptatem distinctio pariatur ad, ea explicabo velit rerum ab temporibus nesciunt optio
-              deserunt aspernatur architecto harum tenetur nam, qui nostrum molestiae consequatur, reprehenderit odio recusandae ipsa! Sapiente iusto nisi consequatur aut, minima quas
-              pariatur velit quo. Aperiam hic, corporis eaque excepturi ratione fugiat cumque reprehenderit optio ad nostrum sequi corrupti aliquid in. Beatae officia quia corrupti dolor
-              mollitia voluptatibus numquam perspiciatis?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. In iste ut commodi deserunt corrupti cum fugiat, nisi
+              assumenda maiores nesciunt tenetur porro, fugit laborum. Ratione, odio expedita exercitationem architecto eos unde
+              sapiente, cum, fugit facere similique dignissimos quibusdam voluptas quos! Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Quas accusantium dolorem molestiae velit itaque harum. Tenetur temporibus magnam fugiat distinctio
+              vero incidunt quo quod ipsam nostrum delectus quos nesciunt soluta placeat, non nulla alias eaque iure perferendis.
+              Officia aliquid recusandae corrupti blanditiis nostrum a, minus, perspiciatis voluptas doloribus sapiente tempora
+              commodi enim impedit nemo ex porro minima eveniet ab aut, nulla possimus ipsam maiores rerum? Quasi illo totam
+              necessitatibus ipsum mollitia quod sint beatae temporibus commodi, ut fugiat repellendus facere id, itaque illum
+              consectetur? Fugit commodi voluptatibus inventore ea numquam, modi possimus, temporibus enim eos obcaecati beatae.
             </BoxContent>
           </Box>
           <Box>
@@ -310,15 +322,25 @@ export default class extends Component {
               <q>{bio}</q>
             </QuoteContent>
           </Box>
-          <Box>
+          {/* <Box>
             <ImageContainer>
               <img src={'https://picsum.photos/g/500/300?image=1045'} alt="placeholder image" />
             </ImageContainer>
             <ImageCaption>This is image caption.</ImageCaption>
-          </Box>
+          </Box> */}
+          {/* <Box>
+            <ImageContainer>
+              <img src="/static/friends.jpg" alt="friends image" />
+            </ImageContainer>
+            <ImageCaption>Beer with my best pals @ Ratchada Night Market</ImageCaption>
+            <ImageContainer>
+              <img src="/static/cnx.jpg" alt="trip image" />
+            </ImageContainer>
+            <ImageCaption>Road trip @ Chiang Mai</ImageCaption>
+          </Box> */}
         </Content>
         <Footer>
-          <FooterText>Wasuwat Limsuparhat | 2018</FooterText>
+          <FooterText>© Wasuwat Limsuparhat | 2018</FooterText>
         </Footer>
       </Container>
     )

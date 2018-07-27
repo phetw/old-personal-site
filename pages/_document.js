@@ -15,6 +15,7 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <title>Hi there! 🙌</title>
+          <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
           <meta name="viewport" content="width=device-width" />
           <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,400" rel="stylesheet" />
           <meta key="twitter-card" name="twitter:card" content="summary" />
