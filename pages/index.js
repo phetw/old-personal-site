@@ -232,7 +232,7 @@ const ProfileContent = BoxContent.extend`
 
 export default class extends Component {
   state = {
-    isLoading: true
+    isLoading: false
   }
 
   static async getInitialProps() {
