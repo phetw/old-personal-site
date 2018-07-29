@@ -257,6 +257,7 @@ export default class extends Component {
       company = '',
       bio = ''
     } = this.props.data
+
     return (
       <Container>
         <ProgressBar />
@@ -300,21 +301,14 @@ export default class extends Component {
           <Box>
             <SubTitle>These days...</SubTitle>
             <BoxContent>
-              I got into cryptocurrencies during mid of 2017 due to my interest in investment. But after a while when I learn
-              about the theory behind each cryptocurrencies, I was sure that the blockchain technology has a large potential in
-              many areas and I wish to be part of that especially during the early stages. Apart from that, I am currently
-              learning Golang for its best talent, concurrency and simplicity.
+              I got into cryptocurrencies during mid of 2017 due to my interest in investment. But after a while I started to
+              research and I learn about the theory behind cryptocurrencies, I wish I got to know it earliear. Like many other
+              people, I also think that the blockchain and cryptocurrencies has a lot of potential as well as a long way ahead, I
+              feel like I wanna be a part of this revolution.
             </BoxContent>
             <BoxContent>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. In iste ut commodi deserunt corrupti cum fugiat, nisi
-              assumenda maiores nesciunt tenetur porro, fugit laborum. Ratione, odio expedita exercitationem architecto eos unde
-              sapiente, cum, fugit facere similique dignissimos quibusdam voluptas quos! Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Quas accusantium dolorem molestiae velit itaque harum. Tenetur temporibus magnam fugiat distinctio
-              vero incidunt quo quod ipsam nostrum delectus quos nesciunt soluta placeat, non nulla alias eaque iure perferendis.
-              Officia aliquid recusandae corrupti blanditiis nostrum a, minus, perspiciatis voluptas doloribus sapiente tempora
-              commodi enim impedit nemo ex porro minima eveniet ab aut, nulla possimus ipsam maiores rerum? Quasi illo totam
-              necessitatibus ipsum mollitia quod sint beatae temporibus commodi, ut fugiat repellendus facere id, itaque illum
-              consectetur? Fugit commodi voluptatibus inventore ea numquam, modi possimus, temporibus enim eos obcaecati beatae.
+              Apart from that, I am currently on a mission of "Contribute anything on Github atleast 5 days a week for a year" as
+              I felt that doing this will keep me inspire and motivate to learn new things and to create new ideas everyday.
             </BoxContent>
           </Box>
           <Box>
