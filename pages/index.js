@@ -32,21 +32,6 @@ const Container = styled.div`
   justify-content: flex-start;
   background-color: black;
 `
-
-const Navbar = styled.nav`
-  order: 1;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 110px;
-  @media (min-width: 320px) and (max-width: 767px) {
-    height: 110px;
-  }
-  @media (min-width: 768px) {
-    height: 135px;
-  }
-`
 const Content = styled.main`
   order: 2;
   flex-grow: 1;
@@ -135,21 +120,6 @@ const SubTitle = styled.p`
   font-size: 1.25rem;
 `
 
-const Icon = styled.img`
-  @media (max-width: 425px) {
-    margin: 1.75rem;
-    width: 40px;
-  }
-  @media (min-width: 426px) and (max-width: 767px) {
-    margin: 2.5rem;
-    width: 40px;
-  }
-  @media (min-width: 768px) {
-    margin: 3rem;
-    width: 50px;
-  }
-`
-
 const Box = styled.div`
   width: 100%;
   margin: 1rem 0;
@@ -188,12 +158,6 @@ const QuoteContent = BoxContent.extend`
   q {
     font-style: italic;
   }
-`
-
-const ImageCaption = BoxContent.extend`
-  font-size: 0.75rem;
-  margin: 2rem;
-  text-align: center;
 `
 
 const ProfileImageContainer = ImageContainer.extend`
@@ -261,9 +225,6 @@ export default class extends Component {
     return (
       <Container>
         <ProgressBar />
-        <Navbar>
-          <Icon id="logo" src={'./static/code-solid.svg'} />
-        </Navbar>
         <Content>
           <TitleContainer>
             <Title>Hello world</Title>
@@ -294,7 +255,7 @@ export default class extends Component {
             <SubTitle>What I do</SubTitle>
             <BoxContent>
               I'm a fresh graduate and I'm currently work as a software developer at Nextzy Technologies where I had done my
-              internship at since January of 2018. I am currently into a lot of Javascript especially with React.js. But
+              internship at since January of 2018. I am currently wandering in Javascript world especially with React.js. But
               nervertheless, I frequently get to work with Angular and a lot of Node.js.
             </BoxContent>
           </Box>
@@ -306,32 +267,12 @@ export default class extends Component {
               people, I also think that the blockchain and cryptocurrencies has a lot of potential as well as a long way ahead, I
               feel like I wanna be a part of this revolution.
             </BoxContent>
-            <BoxContent>
-              Apart from that, I am currently on a mission of "Contribute anything on Github atleast 5 days a week for a year" as
-              I felt that doing this will keep me inspire and motivate to learn new things and to create new ideas everyday.
-            </BoxContent>
           </Box>
           <Box>
             <QuoteContent>
               <q>{bio}</q>
             </QuoteContent>
           </Box>
-          {/* <Box>
-            <ImageContainer>
-              <img src={'https://picsum.photos/g/500/300?image=1045'} alt="placeholder image" />
-            </ImageContainer>
-            <ImageCaption>This is image caption.</ImageCaption>
-          </Box> */}
-          {/* <Box>
-            <ImageContainer>
-              <img src="/static/friends.jpg" alt="friends image" />
-            </ImageContainer>
-            <ImageCaption>Beer with my best pals @ Ratchada Night Market</ImageCaption>
-            <ImageContainer>
-              <img src="/static/cnx.jpg" alt="trip image" />
-            </ImageContainer>
-            <ImageCaption>Road trip @ Chiang Mai</ImageCaption>
-          </Box> */}
         </Content>
         <Footer>
           <FooterText>© Wasuwat Limsuparhat | 2018</FooterText>
