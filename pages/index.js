@@ -207,6 +207,27 @@ const ProfileContent = BoxContent.extend`
     }
   }
 `
+
+const Socials = styled.section`
+  display: flex;
+  justify-content: center;
+`
+
+const Button = styled.button`
+  cursor: pointer;
+  background-color: black;
+  margin: 0 0.5rem;
+  margin-top: 1rem;
+  padding: 0.65rem 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 200;
+  font-family: 'Roboto Mono', sans-serif;
+  box-shadow: 2px 3px 0px #ececec;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+`
 export default class extends Component {
   static async getInitialProps() {
     const { data } = await axios.get('https://api.github.com/users/rappad')
@@ -214,13 +235,7 @@ export default class extends Component {
   }
 
   render() {
-    const {
-      avatar_url = 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png',
-      name = 'Wasuwat Limsuparhat',
-      location = 'Thailand',
-      company = '',
-      bio = ''
-    } = this.props.data
+    const { avatar_url = 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', name = 'Wasuwat Limsuparhat', location = 'Thailand', company = '', bio = '' } = this.props.data
 
     return (
       <Container>
@@ -230,7 +245,7 @@ export default class extends Component {
             <Title>Hello world</Title>
           </TitleContainer>
           <Box>
-            <ProfileImageContainer profile>
+            <ProfileImageContainer profile={true}>
               <img src={avatar_url} alt="Profile image" />
             </ProfileImageContainer>
             <ProfileContent>
@@ -240,7 +255,7 @@ export default class extends Component {
                   <span>{name}</span>
                 </li>
                 <li>
-                  <span>{location}</span>
+                  <span>Live :{location}</span>
                 </li>
                 <li>
                   <span>Fluent English and Thai</span>
@@ -254,18 +269,8 @@ export default class extends Component {
           <Box>
             <SubTitle>What I do</SubTitle>
             <BoxContent>
-              I'm a fresh graduate and I'm currently work as a software developer at Nextzy Technologies where I had done my
-              internship at since January of 2018. I am currently wandering in Javascript world especially with React.js. But
-              nervertheless, I frequently get to work with Angular and a lot of Node.js.
-            </BoxContent>
-          </Box>
-          <Box>
-            <SubTitle>These days...</SubTitle>
-            <BoxContent>
-              I got into cryptocurrencies during mid of 2017 due to my interest in investment. But after a while I started to
-              research and I learn about the theory behind cryptocurrencies, I wish I got to know it earliear. Like many other
-              people, I also think that the blockchain and cryptocurrencies has a lot of potential as well as a long way ahead, I
-              feel like I wanna be a part of this revolution.
+              I currently work as a software developer at Nextzy Technologies where I had done my internship at since January of 2018. I am currently wandering in Javascript world especially with
+              React.js. But nervertheless, I frequently get to work with Angular and a lot of Node.js. I also have a strong belief and interests in blockchain technology and cryptocurrencies.
             </BoxContent>
           </Box>
           <Box>
@@ -273,6 +278,18 @@ export default class extends Component {
               <q>{bio}</q>
             </QuoteContent>
           </Box>
+          <Socials>
+            <Button>
+              <a href="https://medium.com/@phet.w" target="_blank">
+                Medium
+              </a>
+            </Button>
+            <Button>
+              <a href="https://github.com/rappad" target="_blank">
+                Github
+              </a>
+            </Button>
+          </Socials>
         </Content>
         <Footer>
           <FooterText>© Wasuwat Limsuparhat | 2018</FooterText>
