@@ -10,14 +10,13 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    const image = '/static/helloworld.jpg'
     return (
       <html>
         <Head>
           <title>Hi there! 🙌</title>
           <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
           <meta name="viewport" content="width=device-width" />
-          <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,400" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,700" rel="stylesheet" />
           <meta key="twitter-card" name="twitter:card" content="summary" />
           <meta key="twitter-site" name="twitter:site" content="@was_mee" />
           <meta key="twitter-description" name="twitter:description" />

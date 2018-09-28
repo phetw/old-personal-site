@@ -10,6 +10,7 @@ injectGlobal`
     color:#c7c7c7;
     background-color: black;
     font-family: 'Roboto Mono', sans-serif;
+    font-weight:300;
   }
 `
 
@@ -17,6 +18,7 @@ const expandWidth = keyframes`
     from { width: 0vw; }
     to   { width: 100vw; }
 `
+
 const ProgressBar = styled.div`
   width: 0vw;
   height: 3px;
@@ -70,7 +72,7 @@ const FooterText = styled.p`
   padding: 2rem;
   text-align: center;
   font-size: 1rem;
-  font-weight: 100;
+  font-weight: 300;
 `
 
 const TitleContainer = styled.div`
@@ -101,7 +103,7 @@ const bounce = keyframes`
 
 const Title = styled.h1`
   color: white;
-  font-weight: 400;
+  font-weight: 700;
   animation: ${bounce} 1s ease;
   transform-origin: center bottom;
   @media (max-width: 375px) {
@@ -115,9 +117,9 @@ const Title = styled.h1`
 const SubTitle = styled.p`
   color: #c7c7c7;
   width: 95%;
-  padding: 0.25rem 1.5rem;
-  font-weight: 400;
-  font-size: 1.25rem;
+  padding: 0.25rem 1.65rem;
+  font-weight: 700;
+  font-size: 1.35rem;
 `
 
 const Box = styled.div`
@@ -145,7 +147,7 @@ const BoxContent = styled.div`
   color: #c7c7c7;
   margin: 2.35rem;
   font-size: 0.95rem;
-  font-weight: 100;
+  font-weight: 300;
   word-wrap: normal;
   @media (max-width: 426px) {
     margin: 1.5rem;
@@ -189,7 +191,7 @@ const ProfileContent = BoxContent.extend`
     }
     ul li span {
       color: #c7c7c7;
-      font-weight: 100;
+      font-weight: 300;
     }
   }
 
@@ -203,7 +205,7 @@ const ProfileContent = BoxContent.extend`
     }
     ul li span {
       color: #c7c7c7;
-      font-weight: 100;
+      font-weight: 300;
     }
   }
 `
@@ -216,13 +218,13 @@ const Socials = styled.section`
 const Button = styled.button`
   cursor: pointer;
   background-color: black;
-  margin: 0 0.5rem;
+  margin: 0 0.85rem;
   margin-top: 1rem;
-  padding: 0.65rem 1.2rem;
-  font-size: 0.75rem;
-  font-weight: 200;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 300;
   font-family: 'Roboto Mono', sans-serif;
-  box-shadow: 2px 3px 0px #ececec;
+  box-shadow: 3px 4px 0px -1px #ececec;
   a {
     text-decoration: none;
     color: white;
@@ -242,10 +244,10 @@ export default class extends Component {
         <ProgressBar />
         <Content>
           <TitleContainer>
-            <Title>Hello world</Title>
+            <Title>#helloworld</Title>
           </TitleContainer>
           <Box>
-            <ProfileImageContainer profile={true}>
+            <ProfileImageContainer>
               <img src={avatar_url} alt="Profile image" />
             </ProfileImageContainer>
             <ProfileContent>
@@ -255,10 +257,10 @@ export default class extends Component {
                   <span>{name}</span>
                 </li>
                 <li>
-                  <span>Live :{location}</span>
+                  <span>{location} based dev</span>
                 </li>
                 <li>
-                  <span>Fluent English and Thai</span>
+                  <span>Fluent in Thai & English</span>
                 </li>
                 <li>
                   <span>Hired : {company}</span>
@@ -269,14 +271,9 @@ export default class extends Component {
           <Box>
             <SubTitle>What I do</SubTitle>
             <BoxContent>
-              I currently work as a software developer at Nextzy Technologies where I had done my internship at since January of 2018. I am currently wandering in Javascript world especially with
-              React.js. But nervertheless, I frequently get to work with Angular and a lot of Node.js. I also have a strong belief and interests in blockchain technology and cryptocurrencies.
+              My skill set and interests are primarily on web development with Javascript. I am capable of doing both front-end and back-end web development, but I do have preference over doing
+              front-end. My other interests includes blockchain and cryptocurrency technologies.
             </BoxContent>
-          </Box>
-          <Box>
-            <QuoteContent>
-              <q>{bio}</q>
-            </QuoteContent>
           </Box>
           <Socials>
             <Button>
@@ -287,6 +284,11 @@ export default class extends Component {
             <Button>
               <a href="https://github.com/rappad" target="_blank">
                 Github
+              </a>
+            </Button>
+            <Button>
+              <a href="https://codepen.io/rappad/" target="_blank">
+                Codepen
               </a>
             </Button>
           </Socials>
